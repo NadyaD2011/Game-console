@@ -13,15 +13,16 @@ img.addEventListener('mouseout', () => {
 });
 
 let text = document.getElementsByClassName("block")[2];
+let imgBlock = document.getElementsByClassName("block")[1];
 let pictersBlock = document.getElementsByClassName('main__about-game')[0];
 let picters = pictersBlock.getElementsByClassName('about');
-document.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
+    let imgCoordinates = imgBlock.getBoundingClientRect().top;
     let textCoordinates = text.getBoundingClientRect().top;
-    let pictersCoordinates = pictersBlock.getBoundingClientRect().top;
-    if (textCoordinates <= 0){
+    if (imgCoordinates <= 0){
         text.style.marginRight = 0;
     };
-    if (pictersCoordinates <= 0){
+    if (textCoordinates <= 0){
         for (let i = 0; i<=picters.length; i++){
             let picter = picters[i];
             picter.style.opacity = 1;
